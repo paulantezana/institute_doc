@@ -2,8 +2,16 @@
 const withLess = require('@zeit/next-less')
 const withCss = require('@zeit/next-css')
 const lessToJS = require('less-vars-to-js')
+const images = require('remark-images')
+const emoji = require('remark-emoji')
 const fs = require('fs')
 const path = require('path')
+
+const withMDX = require('@zeit/next-mdx')({
+  options: {
+    mdPlugins: [images, emoji]
+  }
+})
 
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
@@ -23,11 +31,12 @@ if (typeof require !== 'undefined') {
 // })
 
 
-module.exports = withCss(withLess({
+module.exports = withCss(withLess(withMDX({
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables // make your antd custom effective
   },
+  pageExtensions: ['js', 'jsx', 'mdx'],
   webpack (config) {
     config.module.rules.push({
       test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
@@ -44,7 +53,7 @@ module.exports = withCss(withLess({
 
     return config
   }
-}));
+})));
 
 // module.exports = withCss({
 //   webpack (config) {
