@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ApiLayout from '../../../components/ApiLayout';
-import { Tree, Icon, Input, Divider, Card, Modal } from 'antd';
+import { Tree, Icon, Input, Divider, Card, Modal, Row, Col } from 'antd';
 import { IconGO,IconHtml,IconJs } from '../../../components/icons';
 
 import ConfigConfig from './config-config.mdx';
@@ -30,7 +30,7 @@ const gData = [
     key: "config",
     title: "config",
     icon: '',
-    description: 'Todas las configuraciones del sistema como la base de datos, versiones, se encuentran en esta carpeta',
+    description: '',
     children: [
       {
         key: "config-config",
@@ -455,13 +455,19 @@ class SearchTree extends React.Component {
 }
 
 
-export default class EstructuraServidor extends Component {
+export default class Documentacion extends Component {
   render () {
     return (
-      <ApiLayout title="Sistema de biblioteca">
-        <Card bordered={false}>
-          <SearchTree/>
-        </Card>
+      <ApiLayout title="Admisión Servidor">
+        <div style={{paddingRight: '1rem'}}>
+          <Row gutter={12}>
+            <Col sm={18}> 
+            </Col>
+            <Col sm={6}>
+              <SearchTree/>
+            </Col>
+          </Row>
+        </div>
       </ApiLayout>
     )
   }
