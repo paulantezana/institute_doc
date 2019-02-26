@@ -1,0 +1,12 @@
+## Tabla ModuleSemester
+Se usa en la relacionde muchos a muchos de las tablas `Module` y `Semester`
+```go
+type ModuleSemester struct {
+	SemesterID uint `json:"semester_id" gorm:"primary_key"`
+	ModuleID   uint `json:"module_id" gorm:"primary_key"`
+}
+```
+
+## Campos
+- **SemesterID(requerido)** ID del semestre
+- **ModuleID(requerido)** ID del modulo

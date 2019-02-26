@@ -1,8 +1,11 @@
 import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
-import DataMDX from './main.mdx';
+import { Pre, Code, InlineCode } from '../../../components/Code';
+import DataMDX from './models-IProgram.mdx';
 
 export default ()=>(
   <CurrentAppLayout title="Admisión Email">
-    <DataMDX/>
+      <DataMDX
+        components={{ pre: Pre, code: Code, inlineCode: InlineCode }}
+      />
   </CurrentAppLayout>
 );

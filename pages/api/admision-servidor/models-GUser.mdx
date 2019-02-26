@@ -1,0 +1,42 @@
+## Tabla User
+Se usa para almacenar todo los usuarios
+```go
+type User struct {
+	ID       uint   `json:"id" gorm:"primary_key"`
+	UserName string `json:"user_name" gorm:"type:varchar(64); unique; not null"` //
+	Password string `json:"password, omitempty" gorm:"type:varchar(64); not null"`
+	Key      string `json:"key, omitempty"`
+	State    bool   `json:"state" gorm:"default:'true'"`
+	Avatar   string `json:"avatar"`
+	Email    string `json:"email" gorm:"type:varchar(64)"`
+	Freeze   bool   `json:"-"`
+
+	RoleID      uint   `json:"role_id"`
+	OldPassword string `json:"old_password" gorm:"-"`
+
+	Students []Student `json:"students, omitempty"`
+	Teachers []Teacher `json:"teachers, omitempty"`
+	Reviews  []Review  `json:"reviews, omitempty"`
+	Comments []Comment `json:"coos, omitempty"`
+}
+```
+## Campos
+- **UserName(requerido)** Campo para almacenar el nombre de usuario que se usara en el LOGIN
+- **Password(requerido)** Campo para almacenar la contraseña del usuario
+- **Key(opcional)**  Campo para almacenar la clave que se guenera cuando un usuario trata de recuperarar su contraseña este clave tiene una vijencia y es unico por cada intento de recuperacion de contraseña
+- **State(opcional)** Estado del usuario. 
+    - `false`   : indica que el usuario no podra loguearse en el sistema
+    - `true`    : usuario comun
+    - Valor por defecto es `true`
+- **Avatar(opcional)** Campo para almacenar la url del foto de perfil del usuario
+- **Email(requerido)** Campo para almacenar el email del usuario que se usara para enviar correos electronicos como en la recuperacion de contraseña, notidicaicones y otros casos
+- **Freeze(opcional)** Seguridad adicional para un usuario que no se permita eliminar por ningun motivo.  
+    - `false`     : usuario comun
+    - `true`      : Inidca que el usuario no se podra eliminar del sistema
+    - Valor por defecto `false`
+- **RoleID(requerido)**  ID Del rol que se le asigno al usuario
+- **OldPassword(auxiliar)** Campos auxiliar para manejar la contraseña antigua usada especialmente cuando un usuario trata de cambiar su contraseña actigua
+- **Students(opcional)** Referencia de los estudiantes
+- **Teachers(opcional)** Referencia los profesores
+- **Reviews(opcional)**  Referencia a las revisiones que realizo el usuario
+- **Comments(opcional)** Referencia a todo los comentarios que realizo el usuario
