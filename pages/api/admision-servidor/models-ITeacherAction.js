@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
-import CurrentAppLayout from './layout';
+import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
 
-class PageData extends Component {
-  render () {
-    return (
-      <CurrentAppLayout title="Admisión Email">
-        data
-      </CurrentAppLayout>
-    )
-  }
-}
-export default PageData;
+export default ()=>(
+  <CurrentAppLayout title="Admisión Email">
+    data
+  </CurrentAppLayout>
+);

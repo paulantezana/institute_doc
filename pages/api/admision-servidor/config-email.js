@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CurrentAppLayout from './layout';
+import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
 import DataMDX from './config-email.mdx';
 
 class PageData extends Component {

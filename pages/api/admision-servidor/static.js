@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
-import CurrentAppLayout from './layout';
+import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
 
-class AdmisionServidor extends Component {
-  render () {
-    return (
-      <CurrentAppLayout title="Admisión Email">
-        data
-      </CurrentAppLayout>
-    )
-  }
-}
-export default AdmisionServidor;
+export default ()=>(
+  <CurrentAppLayout title="Admisión Email">
+    data
+  </CurrentAppLayout>
+);

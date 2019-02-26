@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CurrentAppLayout from './layout';
+import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
 
 class AdmisionServidor extends Component {
   render () {
