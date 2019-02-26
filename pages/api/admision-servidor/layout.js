@@ -38,96 +38,96 @@ const gData = [
     icon: '',
     children: [
       {
-        key: "controller-admissioncontroller",
+        key: "controller-admission",
         title: "admissioncontroller",
         icon: '',
         children: [
           {
-            key: "controller-admissioncontroller-admission",
+            key: "controller-admission-admission",
             title: "admission.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-admissioncontroller-admissionSetting",
+            key: "controller-admission-admissionSetting",
             title: "admissionSetting.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-admissioncontroller-payment",
+            key: "controller-admission-payment",
             title: "payment.go",
             icon: <Icon component={IconGO}/>,
           },
         ],
       },
       {
-        key: "controller-coursescontroller",
+        key: "controller-courses",
         title: "coursescontroller",
         icon: '',
         children: [
           {
-            key: "controller-coursescontroller-coursestudent",
+            key: "controller-courses-course",
             title: "course.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-coursescontroller-coursestudent",
+            key: "controller-courses-coursestudent",
             title: "coursestudent.go",
             icon: <Icon component={IconGO}/>,
           },
         ],
       },
       {
-        key: "controller-institutecontroller",
+        key: "controller-institute",
         title: "institutecontroller",
         icon: '',
         children: [
           {
-            key: "controller-institutecontroller-module",
+            key: "controller-institute-module",
             title: "module.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-program",
+            key: "controller-institute-program",
             title: "program.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-programuser",
+            key: "controller-institute-programuser",
             title: "programuser.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-semester",
+            key: "controller-institute-semester",
             title: "semester.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-student",
+            key: "controller-institute-student",
             title: "student.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-subsidiary",
+            key: "controller-institute-subsidiary",
             title: "subsidiary.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-subsidiaryuser",
+            key: "controller-institute-subsidiaryuser",
             title: "subsidiaryuser.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-teacher",
+            key: "controller-institute-teacher",
             title: "teacher.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-teacherprogram",
+            key: "controller-institute-teacherprogram",
             title: "teacherprogram.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-institutecontroller-unity",
+            key: "controller-institute-unity",
             title: "unity.go",
             icon: <Icon component={IconGO}/>,
           },
@@ -139,27 +139,27 @@ const gData = [
         icon: '',
         children: [
           {
-            key: "controller-librarycontroller-book",
+            key: "controller-library-book",
             title: "book.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-librarycontroller-category",
+            key: "controller-library-category",
             title: "category.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-librarycontroller-comment",
+            key: "controller-library-comment",
             title: "comment.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-librarycontroller-like",
+            key: "controller-library-like",
             title: "like.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-librarycontroller-reading",
+            key: "controller-library-reading",
             title: "reading.go",
             icon: <Icon component={IconGO}/>,
           },
@@ -171,12 +171,12 @@ const gData = [
         icon: '',
         children: [
           {
-            key: "controller-messengercontroller-group",
+            key: "controller-messenger-group",
             title: "group.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-messengercontroller-messenger",
+            key: "controller-messenger-messenger",
             title: "messenger.go",
             icon: <Icon component={IconGO}/>,
           },
@@ -188,22 +188,22 @@ const gData = [
         icon: '',
         children: [
           {
-            key: "controller-monitoringcontroller-answer",
+            key: "controller-monitoring-answer",
             title: "answer.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-monitoringcontroller-poll",
+            key: "controller-monitoring-poll",
             title: "poll.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-monitoringcontroller-question",
+            key: "controller-monitoring-question",
             title: "question.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-monitoringcontroller-typequestion",
+            key: "controller-monitoring-typequestion",
             title: "typequestion.go",
             icon: <Icon component={IconGO}/>,
           },
@@ -215,7 +215,7 @@ const gData = [
         icon: '',
         children: [
           {
-            key: "controller-publiccontroller-admission",
+            key: "controller-public-admission",
             title: "admission.go",
             icon: <Icon component={IconGO}/>,
           },
@@ -227,17 +227,17 @@ const gData = [
         icon: '',
         children: [
           {
-            key: "controller-reviewcontroller-company",
+            key: "controller-review-company",
             title: "company.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-reviewcontroller-review",
+            key: "controller-review-review",
             title: "review.go",
             icon: <Icon component={IconGO}/>,
           },
           {
-            key: "controller-reviewcontroller-reviewDetail",
+            key: "controller-review-reviewDetail",
             title: "reviewDetail.go",
             icon: <Icon component={IconGO}/>,
           },
@@ -589,12 +589,12 @@ const gData = [
     ],
   },
   {
-    key: "tem",
+    key: "temp",
     title: "temp",
     icon: '',
   },
   {
-    key: "tml",
+    key: "templates",
     title: "templates",
     icon: '',
     children: [
@@ -604,32 +604,32 @@ const gData = [
         icon: <Icon component={IconHtml}/>,
       },
       {
-        key: "templates-templateCompany",
+        key: "templates-company",
         title: "templateCompany.xlsx",
         icon: <Icon type="file-excel"/>,
       },
       {
-        key: "templates-templateCourseStudent",
+        key: "templates-courseStudent",
         title: "templateCourseStudent.xlsx",
         icon: <Icon type="file-excel"/>,
       },
       {
-        key: "templates-templateStudent",
+        key: "templates-student",
         title: "templateStudent.xlsx",
         icon: <Icon type="file-excel"/>,
       },
       {
-        key: "templates-templateStudentSA",
+        key: "templates-studentSA",
         title: "templateStudentSA.xlsx",
         icon: <Icon type="file-excel"/>,
       },
       {
-        key: "templates-templateTeacher",
+        key: "templates-teacher",
         title: "templateTeacher.xlsx",
         icon: <Icon type="file-excel"/>,
       },
       {
-        key: "templates-templateTeacherSubsidiary",
+        key: "templates-teacherSubsidiary",
         title: "templateTeacherSubsidiary.xlsx",
         icon: <Icon type="file-excel"/>,
       },

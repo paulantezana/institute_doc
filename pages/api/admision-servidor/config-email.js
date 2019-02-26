@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CurrentAppLayout from './layout';
 import DataMDX from './config-email.mdx';
 
-class AdmisionServidor extends Component {
+class PageData extends Component {
   render () {
     return (
       <CurrentAppLayout title="Admisión Email">
@@ -11,4 +11,4 @@ class AdmisionServidor extends Component {
     )
   }
 }
-export default AdmisionServidor;
+export default PageData;

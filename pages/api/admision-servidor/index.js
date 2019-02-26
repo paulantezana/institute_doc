@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CurrentAppLayout from './layout';
 
-class AdmisionServidor extends Component {
+class PageData extends Component {
   render () {
     return (
       <CurrentAppLayout title="Admisión Servidor">
@@ -10,4 +10,4 @@ class AdmisionServidor extends Component {
     )
   }
 }
-export default AdmisionServidor;
+export default PageData;
