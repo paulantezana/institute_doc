@@ -24,6 +24,7 @@ class Sider extends React.Component {
         <SubMenu key="introducion" title={<span><Icon type="setting" /><span>Introducion</span></span>}>
           <Menu.Item key="instalar-servidor">Instalar el servidor</Menu.Item>
           <Menu.Item key="instalar-cliente">Instalar los clientes</Menu.Item>
+          <Menu.Item key="estructura-servidor">Estructura los servidor</Menu.Item>
           <Menu.Item key="prerequisitos">Prerequisitos</Menu.Item>
           <Menu.Item key="arquitectura">Arquitectura</Menu.Item>
           <Menu.Item key="basededatos">Base de datos</Menu.Item>

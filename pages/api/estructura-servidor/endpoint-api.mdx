@@ -1,0 +1,37 @@
+Es aquí donde reside todas las rutas del api, tenemos tres tipos de rutas
+
+- **Rutas publicas** func PublicApi(e *echo.Echo) 
+    Son todas las rutas que se pueden acceder de manera publica sin la necesidad de autenticarse.
+
+    Estas rutas son usadas para Login y recuperación de contraseñas y algunos datos que son públicos
+    ```go
+    func PublicApi(e *echo.Echo) {
+        pb := e.Group("/api/v1/public")
+        pb.POST("/user/login", controller.Login)
+        ...
+    }
+    ```
+
+- **Rutas protegidas**
+    Son todas las rutas que requieren una clave de autenticación para realizar la peticiones.
+
+    Este clave será siempre la misma por cada usuario durante el tiempo de vida del sistema
+
+- **Rutas protegidas con Login** func ProtectedApi(e *echo.Echo)
+    Son las rutas que únicamente se pueden acceder mediante una autenticación de JWT y que cada una autenticación tiene una vigencia de 24 horas
+    ```go
+    func ProtectedApi(e *echo.Echo) {
+        ar := e.Group("/api/v1")
+
+        // Configure middleware with the custom claims type
+        con := middleware.JWTConfig{
+            Claims:     &utilities.Claim{},
+            SigningKey: []byte(config.GetConfig().Server.Key),
+        }
+        ar.Use(middleware.JWTWithConfig(con))
+
+        // Check Loginreport
+        ar.POST("/login/check", controller.LoginCheck)
+        ...
+    }
+    ```

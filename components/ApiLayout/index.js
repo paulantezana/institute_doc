@@ -3,14 +3,22 @@ import ApiMenu from '../ApiMenu';
 import { Row, Col } from 'antd';
 import SiteHeader from '../SiteHeader';
 import Head from 'next/head';
+import Prism from 'prismjs';
 
 class DocLayout extends Component {
+  componentDidMount () {
+    Prism.highlightAll()
+  }
+  
+  componentDidUpdate () {
+    Prism.highlightAll()
+  }
   render () {
     const { children, title = '', description = '' } = this.props;
     return (
       <div>
         <Head>
-          <script src="/static/prism.js"></script>
+          {/* <script src="/static/prism.js"></script> */}
           <link rel='stylesheet' type='text/css' href='/static/prism.css' />
         </Head>
         <SiteHeader title={title} description={description} />
