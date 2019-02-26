@@ -15,7 +15,7 @@ const gData = [
         icon: '',
         children: [
         {
-            key: "config-config",
+            key: "config_config",
             title: "config",
             icon: <Icon component={IconGO}/>,
         },

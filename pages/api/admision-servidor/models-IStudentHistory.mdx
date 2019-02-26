@@ -1,0 +1,27 @@
+## Tabla StudentHistory
+Se usa para almacenar el historial del alumno cada que se hace alguna modificacion, o acciones en el sistema
+como por ejemplo:
+- Inscribir a un poceros de admisión
+- Rendir la evaluación
+- Revisiones de las practicas modulares
+- Etc.
+
+```go
+type StudentHistory struct {
+	ID          uint      `json:"id" gorm:"primary_key"`
+	Description string    `json:"description"`
+	StudentID   uint      `json:"student_id"`
+	UserID      uint      `json:"user_id"`
+	Type        uint      `json:"type"`
+	Date        time.Time `json:"date"`
+}
+```
+## Campos
+- **Description(requerido)** Campo para almacenar una descripción corta del nuevo historial del alumno
+- **StudentID(requerido)** ID del estudiante al que se le esta creando el nuevo historial
+- **UserID(requerido)** ID del usuario que esta creando el nuevo historial
+- **Type(requerido)**  ID tipo deaccion que se realizo
+    - 1 : Cuando hubo uan accion de crear
+    - 2 : Cuando hubo una accion de actualizar
+    - 3 : Cuando hubo una accion de imprimir
+- **Date(requerido)** Campo para almacenar la fecha en la que se creo el nuevo historial

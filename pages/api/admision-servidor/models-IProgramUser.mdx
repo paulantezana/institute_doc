@@ -1,0 +1,21 @@
+## Tabla ProgramUser
+Se usa para asignarle los permisos a un usuaro sobre un programa de estudios.
+se tiene que crear de forma automática las referencias te todo los usuarios con todo los programas de estudios que existan
+con el valor por defecto en el campo `License` en false
+
+```go
+type ProgramUser struct {
+	ID        uint `json:"id" gorm:"primary_key"`
+	UserID    uint `json:"user_id"`
+	ProgramID uint `json:"program_id"`
+	License   bool `json:"license"`
+}
+```
+
+## Campos
+- **UserID(requerido)** ID del usuario a la que se esta asignando el permiso
+- **ProgramID(requerido)** ID del programa de estudios al que el usuario podrá acceder
+- **License(requerido)** Licencia si el usuario tiene permiso o no
+    - `false`   : Indica que el usuario no podrá acceder al programa de estudios
+    - `true`    : el usuario tiene permiso para acceder al programa de estudios
+    - Valor por defecto `false`

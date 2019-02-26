@@ -1,0 +1,20 @@
+## Tabla Semester
+Se usa para almacenar los semestres de cada programa de estudios
+```go
+type Semester struct {
+	ID       uint   `json:"id" gorm:"primary_key"`
+	Name     string `json:"name" gorm:"type:varchar(128); not null"`
+	Sequence uint   `json:"sequence"`
+	Period   string `json:"period"`
+	Year     uint   `json:"year" gorm:"not null"`
+
+	ProgramID uint `json:"program_id"`
+}
+```
+
+## Campos
+- **Name(requerido)** Campo para almacenar el nombre del semestre
+- **Sequence(requerido)** Campo para almacenar la secuencia numérica del semestre
+- **Period(opcional)** Campo para almacenar el periodo academico
+- **Year(opcional)** Campo para almacenar el año del semestre
+- **ProgramID(requerido)** ID del programa de estudios a la que pertenece este semestre
