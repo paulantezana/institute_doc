@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
 import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
+import DataMDX from './main.mdx';
 
-class PageData extends Component {
-  render () {
-    return (
-      <CurrentAppLayout title="Admisión Servidor">
-        index
-      </CurrentAppLayout>
-    )
-  }
-}
-export default PageData;
+export default ()=>(
+  <CurrentAppLayout title="Admisión Email">
+    <DataMDX/>
+  </CurrentAppLayout>
+);

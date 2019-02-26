@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
 import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
+import DataMDX from './main.mdx';
 
 export default ()=>(
   <CurrentAppLayout title="Admisión Email">
-    data
+    <DataMDX/>
   </CurrentAppLayout>
 );

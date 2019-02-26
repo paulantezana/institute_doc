@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
 import CurrentAppLayout from './../../../components/Layouts/AdmisionServerLayout';
+import { Pre, Code, InlineCode } from '../../../components/Code';
+import DataMDX from './models-CCourseStudent.mdx';
 
-class PageData extends Component {
-  render () {
-    return (
-      <CurrentAppLayout title="Admisión Email">
-        data
-      </CurrentAppLayout>
-    )
-  }
-}
-export default PageData;
+export default ()=>(
+  <CurrentAppLayout title="Admisión Email">
+      <DataMDX
+        components={{ pre: Pre, code: Code, inlineCode: InlineCode }}
+      />
+  </CurrentAppLayout>
+);
