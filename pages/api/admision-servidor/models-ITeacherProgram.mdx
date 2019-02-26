@@ -1,0 +1,24 @@
+## Tabla TeacherProgram
+Se usa para relacionar los profesores con los programas de estudios para 
+
+ya que un profesor puede estar asignado en diferentes programas de estudios
+- como profesores de carrera
+- y los profesores transversales
+
+```go
+type TeacherProgram struct {
+	ID        uint   `json:"id" gorm:"primary_key"`
+	TeacherID uint   `json:"teacher_id"`
+	ProgramID uint   `json:"program_id"`
+	ByDefault bool   `json:"by_default"`
+	Type      string `json:"type"` //  // 
+}
+```
+
+## Campos
+- **TeacherID(requerido)** ID del profesor que esta relacionado al programa de estudios
+- **ProgramID(requerido)** ID del programa de estudios a la que esta relacionado el profesor
+- **ByDefault(requerido)** Asignar el programa por defecto a la que pertenece el profesor
+- **Type(requerido)** 
+    - `cross`   : transversales
+    - `career`  : de carrera

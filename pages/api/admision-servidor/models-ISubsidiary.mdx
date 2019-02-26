@@ -1,0 +1,30 @@
+## Tabla Subsidiary
+Se usa para almacenar las filiales
+```go
+type Subsidiary struct {
+	ID                  uint   `json:"id" gorm:"primary_key"`
+	Name                string `json:"name"`
+	Country             string `json:"country"`
+	Department          string `json:"department"`
+	Province            string `json:"province"`
+	District            string `json:"district"`
+	TownCenter          string `json:"town_center"`
+	Address             string `json:"address"`
+	Main                bool   `json:"main"`
+	Phone               string `json:"phone"`
+}
+```
+
+## Campos
+- **Name(requerido)** Campo para almacenar el nombre de la filial
+- **Country(requerido)** Campo para almacenar el país donde se encuentra la filial
+- **Department(requerido)** Campo para almacenar el departamento donde se encuentra la filial
+- **Province(opcional)** Campo para almacenar la provincia donde se encuentra la filial
+- **District(opcional)** Campo para almacenar el distrito donde se encuentra la filial
+- **TownCenter(opcional)** Campo para almacenar el centro poblado donde se encuentra la filial
+- **Address(requerido)** Campo para almacenar la dirección exacta donde se encuentra la filial
+- **Main(opcional)** Campo para indicar cual es la filial principal en todo el registro solo debe existir uno
+    - `false`   : Es filial
+    - `true`    : Central
+    Valor por defecto `false`
+- **Phone(opcional)** Campo para almacenar el teléfono de la filial

@@ -1,0 +1,14 @@
+## Tabla Vote
+Se usa para registrar las votaciones de un comentario que se izo en un libro o una respuesta aun comentario existente
+```go
+type Vote struct {
+	ID        uint `json:"id" gorm:"primary_key"`
+	CommentID uint `json:"comment_id" gorm:"not null"`
+	UserID    uint `json:"user_id" gorm:"not null"`
+	Value     bool `json:"value" gorm:"not null"`
+}
+```
+## Campos
+- **CommentID(requerido)** ID del comentario a la ue se esta realizando la votación
+- **UserID(requerido)** ID del usuario quien esta realizando la votación
+- **Value(requerido)** El valor de la votación

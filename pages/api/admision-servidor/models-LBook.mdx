@@ -1,0 +1,45 @@
+## Tabla Book
+Se usa para registrar los libros por categorías
+```go
+type Book struct {
+	ID               uint       `json:"id" gorm:"primary_key"`
+	Name             string     `json:"name"`
+	ShortDescription string     `json:"short_description"`
+	LongDescription  string     `json:"long_description"`
+	Author           string     `json:"author"`
+	Editorial        string     `json:"editorial"`
+	YearEdition      uint       `json:"year_edition"`
+	Version          uint       `json:"version"`
+	EnableDownload   bool       `json:"enable_download"`
+	Avatar           string     `json:"avatar"`
+	Pdf              string     `json:"pdf"`
+	State            bool       `json:"state" gorm:"default:'true'"`
+	Views            uint32     `json:"views"`
+
+	CategoryID uint `json:"category_id"`
+	UserID     uint `json:"user_id"`
+
+	Comments []Comment `json:"comments, omitempty"`
+	Readings []Reading `json:"readings, omitempty"`
+	Likes    []Like    `json:"likes, omitempty"`
+}
+```
+
+## Campos
+- **Name(requerido)** Campo para registrar el nombre o titulo
+- **ShortDescription(opcional)** Campo para registrar una descripción corta
+- **LongDescription(opcional)** Campo para registrar una descripción larga
+- **Author(opcional)** Campo para registrar el autor
+- **Editorial(opcional)** Campo para registrar el editorial
+- **YearEdition(opcional)** Campo para registrar la edición del año
+- **Version(opcional)** Campo para registrar la versión
+- **EnableDownload(opcional)** Campo para habilitar la descarga
+- **Avatar(opcional)** Campo para registrar la url de la foto de la portada
+- **Pdf(opcional)** Campo para registrar la url del pdf que se subió
+- **State(opcional)** Estado
+- **Views(opcional)** Campo para registrar el numero de visitas que tiene el libro
+- **CategoryID(opcional)** ID de la categoría a la que pertenece el libro
+- **UserID(opcional)** ID del usuario quien registro el libro
+- **Comments(opcional)** Referencia a la tabla `Comment` de todos los comentarios acerca del libro
+- **Readings(opcional)** Referencias a las lecturas de los libros
+- **Likes(opcional)** Referencia likes que tiene el libro
