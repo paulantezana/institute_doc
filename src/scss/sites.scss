@@ -1,0 +1,27 @@
+@import "utils/index";
+ul {
+    p{
+        margin: 0;
+    }
+}
+
+// multimedia styles
+video,iframe,img,svg{
+    max-width : 100%;
+    height    : auto;
+    display: inline-block;
+}
+
+@import "components/Header";
+@import "components/MainBanner";
+@import "components/ApiBanner";
+
+
+.Container{
+    @extend %container;
+}
+.Grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+    grid-gap: 1.5rem;
+}

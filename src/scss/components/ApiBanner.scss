@@ -1,0 +1,42 @@
+.ApiBanner{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include from(l){
+        text-align: left;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    // align-items: center;
+    // @include to(l){
+    //     flex-direction: column;
+    // }
+    & > div{
+        width: 100%;
+        @include from(l){
+            width: 50%;
+        }
+    }
+    h1{
+        font-size: 38px;
+        line-height: 46px;
+        margin-bottom: 16px;
+        font-weight: normal;
+    }
+    p {
+        margin-bottom: 40px;
+        font-size: 20px;
+        line-height: 28px;
+        // color: @contentColor;
+    }
+    button {
+        width: 168px;
+        height: 48px;
+        font-size: 20px;
+        margin-bottom: 64px;
+    }
+}

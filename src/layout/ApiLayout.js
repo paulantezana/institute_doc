@@ -2,7 +2,6 @@ import React from "react"
 import { enquireScreen } from "enquire-js"
 
 import Header from "./Header"
-import "./Header.less"
 import ApiMenu from "./ApiMenu"
 
 import { Row, Col, Card } from "antd"

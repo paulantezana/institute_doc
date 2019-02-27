@@ -7,12 +7,29 @@ class Sider extends React.Component {
         return (
             <div>
                 <Menu mode="inline">
-                    <Menu.Item key="instalar-servidor">
-                        Instalar el servidor
+                    <Menu.Item>
+                        <Link to="/api/starter">Introducción</Link>
                     </Menu.Item>
-                    <Menu.Item key="instalar-cliente">
-                        Instalar los clientes
+                    <Menu.Item>
+                        <Link to="/api/prerequisitos">Prerequisitos</Link>
                     </Menu.Item>
+                    <SubMenu title="Instalar">
+                        <Menu.Item>
+                            <Link to="/api/instalar/cliente">Cliente</Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Link to="/api/instalar/servidor">Servidor</Link>
+                        </Menu.Item>
+                    </SubMenu>
+                    <SubMenu title="Estrutura">
+                        <Menu.Item>
+                            <Link to="/api/estrutura/cliente">Cliente</Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Link to="/api/estrutura/servidor">Servidor</Link>
+                        </Menu.Item>
+                    </SubMenu>
+
                     <Menu.Item key="estructura-servidor">
                         Estructura los servidor
                     </Menu.Item>
