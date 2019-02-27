@@ -10,12 +10,12 @@ export default ({ data }) => (
     <SiteLayout>
         <div className="ApiBanner Container">
             <QueueAnim>
-                <h1 key="h2"> API Codigo Fuente</h1>
+                <h1 key="h2"> Documentacion Codigo Fuente</h1>
                 <p key="p">Documentación de código fuente del sistema cualquier cambio que realice en el sistema debe documentar en la API</p>
                 <span key="button">
-                    <Link to="/api/starter">
+                    <Link to="/documentacion/starter">
                         <Button type="primary">
-                            Iniciar API
+                            Documentacion
                         </Button>
                     </Link>
                 </span>

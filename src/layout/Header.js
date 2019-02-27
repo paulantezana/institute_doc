@@ -29,8 +29,8 @@ class Header extends React.Component {
                 <Menu.Item key="tutorial">
                     <Link to="/tutorial">Tutorial</Link>
                 </Menu.Item>
-                <Menu.Item key="api">
-                    <Link to="/api">API</Link>
+                <Menu.Item key="documentacion">
+                    <Link to="/documentacion">Documentación</Link>
                 </Menu.Item>
                 { menuMode === "inline" && (
                     <Menu.Item key="preview">
