@@ -1,13 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-import SiteLayout from "../layout/SiteLayout"
-import MainBanner from '../components/MainBanner';
+import SiteLayout from "../../layout/SiteLayout"
+// import { Button } from "antd";
+// import { Link } from "gatsby"
 
 export default ({ data }) => (
     <SiteLayout>
-        <MainBanner/>
+        <div className="MainBanner">
+            Tutoriales
+        </div>
     </SiteLayout>
-);
+)
 
 export const query = graphql`
     query {

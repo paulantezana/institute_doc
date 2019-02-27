@@ -1,6 +1,6 @@
 ---
 title: "Modelos de la base de datos"
-date: "2017-08-10"
+date: "2019-27-02"
 ---
 
 ## Tabla Subsidiary
@@ -20,7 +20,7 @@ type Subsidiary struct {
 }
 ```
 
-## Campos
+### Campos
 - **Name(requerido)** Campo para almacenar el nombre de la filial
 - **Country(requerido)** Campo para almacenar el país donde se encuentra la filial
 - **Department(requerido)** Campo para almacenar el departamento donde se encuentra la filial
@@ -34,7 +34,6 @@ type Subsidiary struct {
     Valor por defecto `false`
 - **Phone(opcional)** Campo para almacenar el teléfono de la filial
 
-***
 ## Tabla SubsidiaryUser
 Se usa para asignarle los permisos a un usuario sobre una filial.
 se tiene que crear de forma automática las referencias te todo los usuarios con todo los filiales que existan
@@ -49,7 +48,7 @@ type SubsidiaryUser struct {
 }
 ```
 
-## Campos
+### Campos
 - **UserID(requerido)** ID del usuario a la que se esta asignando el permiso
 - **SubsidiaryID(requerido)** ID de la filial al que el usuario podrá acceder
 - **License(requerido)** Licencia si el usuario tiene permiso o no
@@ -71,7 +70,7 @@ type Program struct {
 	SubsidiaryID uint `json:"subsidiary_id"`
 }
 ```
-## Campos
+### Campos
 - **Name(requerido)** Campo para almacenar el nombre del programa de estudios
 - **Level(requerido)** Campo para almacenar el nivel académico del programa de estudios
 - **SubsidiaryID(requerido)** ID de la filial a la que pertenece el programa de estudios
@@ -92,7 +91,7 @@ type ProgramUser struct {
 }
 ```
 
-## Campos
+### Campos
 - **UserID(requerido)** ID del usuario a la que se esta asignando el permiso
 - **ProgramID(requerido)** ID del programa de estudios al que el usuario podrá acceder
 - **License(requerido)** Licencia si el usuario tiene permiso o no
@@ -116,7 +115,7 @@ type Semester struct {
 }
 ```
 
-## Campos
+### Campos
 - **Name(requerido)** Campo para almacenar el nombre del semestre
 - **Sequence(requerido)** Campo para almacenar la secuencia numérica del semestre
 - **Period(opcional)** Campo para almacenar el periodo academico
@@ -141,7 +140,7 @@ type Module struct {
 }
 ```
 
-## Campos
+### Campos
 - **Sequence(requerido)** Campo para alamcenar la secuencia numerica del modulo
 - **Name(requerido)** Campo para alamcenar el nombre del modulo
 - **Description(opcional)** Campo para alamcenar la descripcion completa del modulo
@@ -160,7 +159,7 @@ type ModuleSemester struct {
 }
 ```
 
-## Campos
+### Campos
 - **SemesterID(requerido)** ID del semestre
 - **ModuleID(requerido)** ID del modulo
 
@@ -192,7 +191,7 @@ type Student struct {
 }
 ```
 
-## Campos
+### Campos
 - **DNI(requerido)** Campo para almacenar el DNI del alumno
 - **FullName(requerido)** Campo para almacenar el nombre completo del alumno se recomiendo usar el siguiente formato `APELLIDO APELLIDO, Nombres`
 - **Phone(requerido)** Campo para almacenar el telefono o el numero de calular del alumno
@@ -231,7 +230,7 @@ type StudentHistory struct {
 	Date        time.Time `json:"date"`
 }
 ```
-## Campos
+### Campos
 - **Description(requerido)** Campo para almacenar una descripción corta del nuevo historial del alumno
 - **StudentID(requerido)** ID del estudiante al que se le esta creando el nuevo historial
 - **UserID(requerido)** ID del usuario que esta creando el nuevo historial
@@ -261,7 +260,7 @@ type StudentProgram struct {
 }
 ```
 
-## Campos
+### Campos
 - **StudentID(requerido)** ID del alumno al que se va relacionar aun programa de estudios
 - **ProgramID(requerido)** ID del programa de estudios con lo que se relacionara el alumno
 - **ByDefault(requerido)** Campo que define cual es la relación principal del estudiante con el programa
@@ -279,7 +278,7 @@ type StudentStatus struct {
 }
 ```
 
-## Campos
+### Campos
 - **Name()** Campo usado para almacenar nombre del estado del alumno
 
 ## Datos
@@ -326,7 +325,7 @@ type Teacher struct {
 }
 ```
 
-## Campos
+### Campos
 - **DNI(requerido)** Campo para almacenar el DNI del profesor
 - **LastName(requerido)** Campo para almacenar los apellidos del profesor
 - **FirstName(requerido)** Campo para almacenar los nombre profesor
@@ -359,7 +358,7 @@ type TeacherAction struct {
 }
 ```
 
-## Campos
+### Campos
 - **Action(requerido)** Campo para registrar la acción del profesor como
     - `create`  : crear un nuevo registro
     - `update`  : actualizar un nuevo registro
@@ -386,7 +385,7 @@ type TeacherProgram struct {
 }
 ```
 
-## Campos
+### Campos
 - **TeacherID(requerido)** ID del profesor que esta relacionado al programa de estudios
 - **ProgramID(requerido)** ID del programa de estudios a la que esta relacionado el profesor
 - **ByDefault(requerido)** Asignar el programa por defecto a la que pertenece el profesor
@@ -412,7 +411,7 @@ type Unity struct {
 }
 ```
 
-## Campos
+### Campos
 - **Name()** Campo para registrar el nombre de la unidad
 - **Credit()** Campo para registrar el numero de créditos que equivale de la unidad
 - **Hours()** Campo para registrar el numero de horas de avance de la unidad

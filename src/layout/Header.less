@@ -1,9 +1,6 @@
 @import "~antd/lib/style/themes/default.less";
-@site-heading-color: #0d1a26;
-@site-text-color: #314659;
-@site-text-color-secondary: #697b8c;
-@site-border-color-split: #ebedf0;
-@border-color: rgba(229, 231, 235, 100);
+@site-text-color: #ebebeb;
+@secondary-color: #FFDF37;
 
 @import "~antd/lib/style/mixins/clearfix.less";
 
@@ -20,20 +17,20 @@
     cursor: pointer;
 }
 
-#header {
-  background-color: #fff;
+.Header {
+  background-color: #803AB8;
   position: relative;
   z-index: 10;
-  height: 64px;
+  height: 50px;
 }
 
-#logo {
+.Logo {
   overflow: hidden;
   padding-left: 40px;
   float: left;
-  line-height: 64px;
+  line-height: 50px;
   text-decoration: none;
-  height: 64px;
+  height: 50px;
   img {
     display: inline;
     vertical-align: middle;
@@ -41,7 +38,7 @@
     width: 32px;
   }
   span {
-    color: @primary-color;
+    color: white;
     outline: none;
     font-size: 14px;
     line-height: 28px;
@@ -53,34 +50,42 @@
   padding-right: 40px;
 }
 
-#menu {
+.Menu {
   float: right;
   overflow: hidden;
-  height: 64px;
+  height: 50px;
   .ant-menu {
-    line-height: 60px;
+    line-height: 48px;
+    background: transparent;
   }
   .ant-menu-horizontal {
+    a{
+      color: white;
+      &:hover,
+      &:active{
+        color: @secondary-color;
+      }
+    }
     border-bottom: none;
     & > .ant-menu-item {
       border-top: 2px solid transparent;
       &:hover {
-        border-top: 2px solid @primary-color;
+        border-top: 2px solid @secondary-color;
         border-bottom: 2px solid transparent;
       }
     }
     & > .ant-menu-item-selected {
-      border-top: 2px solid @primary-color;
+      border-top: 2px solid @secondary-color;
       border-bottom: 2px solid transparent;
       a {
-        color: @primary-color;
+        color: @secondary-color;
       }
     }
   }
 }
 
 #preview {
-  padding-top: 17px;
+  padding-top: 10px;
   float: right;
   margin-left: 32px;
   button {
@@ -88,8 +93,8 @@
   }
 }
 
-#preview-button {
-  .ant-btn {
-    color: @site-text-color;
-  }
-}
+// #preview-button {
+//   .ant-btn {
+//     color: @site-text-color;
+//   }
+// }

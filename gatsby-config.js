@@ -8,6 +8,10 @@ module.exports = {
             resolve: 'gatsby-plugin-less',
             options: {
                 javascriptEnabled: true,
+                modifyVars: {
+                    'primary-color': '#9A40D6',
+                    'layout-header-height': '50px'
+                }
             },
         },
         {
@@ -16,6 +20,7 @@ module.exports = {
                 style: true,
             },
         },
+        `gatsby-plugin-sass`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -37,6 +42,7 @@ module.exports = {
                     noInlineHighlight: false,
                   },
                 },
+                `gatsby-remark-external-links`,
               ],
             },
         },

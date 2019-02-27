@@ -4,8 +4,7 @@ import { Link } from "gatsby"
 
 import { enquireScreen } from "enquire-js"
 
-const LOGO_URL =
-    "https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg"
+const LOGO_URL = "https://assets.paulantezana.com/logo-circle-white-purple.svg"
 
 class Header extends React.Component {
     state = {
@@ -28,12 +27,12 @@ class Header extends React.Component {
                     <Link to="/">Inicio</Link>
                 </Menu.Item>
                 <Menu.Item key="tutorial">
-                    <Link to="/">Tutorial</Link>
+                    <Link to="/tutorial">Tutorial</Link>
                 </Menu.Item>
                 <Menu.Item key="api">
-                    <Link to="/">API</Link>
+                    <Link to="/api">API</Link>
                 </Menu.Item>
-                {menuMode === "inline" && (
+                { menuMode === "inline" && (
                     <Menu.Item key="preview">
                         {/* <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
                 预览
@@ -44,7 +43,7 @@ class Header extends React.Component {
         )
 
         return (
-            <div id="header" className="header">
+            <div className="Header">
                 {menuMode === "inline" ? (
                     <Popover
                         overlayClassName="popover-menu"
@@ -64,27 +63,20 @@ class Header extends React.Component {
                 ) : null}
                 <Row>
                     <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
-                        <div id="logo" to="/">
+                        <Link to="/" className="Logo">
                             <img src={LOGO_URL} alt="logo" />
-                            <span>Institucional</span>
-                        </div>
+                            <span>Documentacion</span>
+                        </Link>
                     </Col>
                     <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
                         <div className="header-meta">
                             <div id="preview">
-                                <Link to="http://preview.pro.ant.design">
-                                    <Button icon="eye-o">Ingresar</Button>
-                                </Link>
-                                {/* <a
-                  id="preview-button"
-                  target="_blank"
-                  href="http://preview.pro.ant.design"
-                  rel="noopener noreferrer"
-                >
-                </a> */}
+                                <a href="http://institucional.paulantezana.com" target="_blanck">
+                                    <Button icon="eye-o" type="primary" >Ingresar</Button>
+                                </a>
                             </div>
                             {menuMode === "horizontal" ? (
-                                <div id="menu">{menu}</div>
+                                <div className="Menu">{menu}</div>
                             ) : null}
                         </div>
                     </Col>

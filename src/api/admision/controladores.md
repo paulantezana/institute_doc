@@ -1,4 +1,4 @@
 ---
-title: "Sweet Pandas Eating Sweets"
-date: "2017-08-10"
+title: "Logica de negocio"
+date: "2019-27-02"
 ---
