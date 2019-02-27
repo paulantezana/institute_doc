@@ -1,45 +1,45 @@
 import React from "react"
-export default ({ children }) => (
-    <div>
-        <div className="Site-header">
-            <header className="Header Container">
-                <div className="Header-branding">
-                    <div className="Branding">
-                        <div className="Branding-logo">Logo</div>
-                    </div>
-                </div>
-                <div className="Header-nav">
-                    <div
-                        id="PrimaryMenu-toggle"
-                        className="icon-menu Menu-toggle"
-                    />
-                    <nav>
-                        <ul className="Menu PrimaryMenu">
-                            <li>
-                                {" "}
-                                Tutorial
-                                {/* <Link href='/tutorial'><a>Tutorial</a></Link> */}
-                            </li>
-                            <li>
-                                {" "}
-                                API
-                                {/* <Link href='/api'><a>API</a></Link> */}
-                            </li>
-                            <li>
-                                {" "}
-                                Creditos
-                                {/* <Link href='/creditos'><a>Creditos</a></Link> */}
-                            </li>
-                            <li>
-                                {" "}
-                                Versiones
-                                {/* <Link href='/versiones'><a>Versiones</a></Link> */}
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-        </div>
-        {children}
-    </div>
-)
+import { enquireScreen } from "enquire-js"
+
+import Header from "./Header"
+// import Banner from './Banner';
+// import Page1 from './Page1';
+// import Page2 from './Page2';
+// import Footer from './Footer';
+import "./Header.less"
+
+let isMobile
+
+enquireScreen(b => {
+    isMobile = b
+})
+
+class SiteLayout extends React.PureComponent {
+    state = {
+        isMobile,
+    }
+
+    componentDidMount() {
+        enquireScreen(b => {
+            this.setState({
+                isMobile: !!b,
+            })
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <Header isMobile={this.state.isMobile} />
+                {/* <div className="home-wrapper">
+            <Banner isMobile={this.state.isMobile} />
+            <Page1 isMobile={this.state.isMobile} />
+            <Page2 />
+          </div>
+          <Footer /> */}
+            </div>
+        )
+    }
+}
+
+export default SiteLayout
