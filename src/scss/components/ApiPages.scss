@@ -21,3 +21,13 @@
         font-size: 12px;
     }
 }
+
+.SiderMenu{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    &:focus,
+    &:hover{
+        overflow-y: auto;
+    }
+}

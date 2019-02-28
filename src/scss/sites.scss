@@ -17,12 +17,25 @@ video,iframe,img,svg{
 @import "components/ApiBanner";
 @import "components/ApiPages";
 
-
 .Container{
     @extend %container;
 }
+
 .Grid{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
     grid-gap: 1.5rem;
+}
+
+.Center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.Sistems{
+    margin-top: 64px;
+    margin-bottom: 32px;
 }

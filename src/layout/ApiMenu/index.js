@@ -1,7 +1,14 @@
 import React from "react"
 import { Menu, Icon, Affix } from "antd"
 import { Link } from "gatsby"
-// import { IconAdmission } from '../../components/icons'
+import {
+    IconAdmission,
+    IconReview,
+    IconCertificate,
+    IconLibrarie,
+    IconMonitoring,
+    IconWebSite,
+} from "../../components/icons"
 
 const SubMenu = Menu.SubMenu
 
@@ -10,7 +17,7 @@ class Sider extends React.Component {
         return (
             <div>
                 <Affix offsetTop={0}>
-                    <Menu mode="inline">
+                    <Menu mode="inline" className="SiderMenu">
                         <Menu.Item key="starter">
                             <Icon type="bulb" />
                             <span>
@@ -73,7 +80,14 @@ class Sider extends React.Component {
                             key="admision"
                             title={
                                 <span>
-                                    <Icon type="rest" />
+                                    <Icon
+                                        component={IconAdmission}
+                                        style={{
+                                            fontSize: "21px",
+                                            position: "relative",
+                                            top: "5px",
+                                        }}
+                                    />
                                     <span>Admisión</span>
                                 </span>
                             }
@@ -108,7 +122,14 @@ class Sider extends React.Component {
                             key="revision"
                             title={
                                 <span>
-                                    <Icon type="rest" />
+                                    <Icon
+                                        component={IconReview}
+                                        style={{
+                                            fontSize: "21px",
+                                            position: "relative",
+                                            top: "5px",
+                                        }}
+                                    />{" "}
                                     <span>Revisión</span>
                                 </span>
                             }
@@ -128,7 +149,14 @@ class Sider extends React.Component {
                             key="certificacion"
                             title={
                                 <span>
-                                    <Icon type="rest" />
+                                    <Icon
+                                        component={IconCertificate}
+                                        style={{
+                                            fontSize: "21px",
+                                            position: "relative",
+                                            top: "5px",
+                                        }}
+                                    />{" "}
                                     <span>Certificación</span>
                                 </span>
                             }
@@ -148,7 +176,14 @@ class Sider extends React.Component {
                             key="egresados"
                             title={
                                 <span>
-                                    <Icon type="rest" />
+                                    <Icon
+                                        component={IconMonitoring}
+                                        style={{
+                                            fontSize: "21px",
+                                            position: "relative",
+                                            top: "5px",
+                                        }}
+                                    />{" "}
                                     <span>Egresados</span>
                                 </span>
                             }
@@ -168,7 +203,14 @@ class Sider extends React.Component {
                             key="biblioteca"
                             title={
                                 <span>
-                                    <Icon type="rest" />
+                                    <Icon
+                                        component={IconLibrarie}
+                                        style={{
+                                            fontSize: "21px",
+                                            position: "relative",
+                                            top: "5px",
+                                        }}
+                                    />{" "}
                                     <span>Biblioteca</span>
                                 </span>
                             }
@@ -180,6 +222,34 @@ class Sider extends React.Component {
                             </Menu.Item>
                             <Menu.Item>
                                 <Link to="/documentacion/biblioteca/softwares">
+                                    Softwares
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+
+                        <SubMenu
+                            key="sitioweb"
+                            title={
+                                <span>
+                                    <Icon
+                                        component={IconWebSite}
+                                        style={{
+                                            fontSize: "21px",
+                                            position: "relative",
+                                            top: "5px",
+                                        }}
+                                    />{" "}
+                                    <span>Sitio web</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/sitioweb/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/sitioweb/softwares">
                                     Softwares
                                 </Link>
                             </Menu.Item>
@@ -200,26 +270,6 @@ class Sider extends React.Component {
                             </Menu.Item>
                             <Menu.Item>
                                 <Link to="/documentacion/mensajeria/softwares">
-                                    Softwares
-                                </Link>
-                            </Menu.Item>
-                        </SubMenu>
-                        <SubMenu
-                            key="sitioweb"
-                            title={
-                                <span>
-                                    <Icon type="rest" />
-                                    <span>Sitio web</span>
-                                </span>
-                            }
-                        >
-                            <Menu.Item>
-                                <Link to="/documentacion/sitioweb/modelos">
-                                    Modelos
-                                </Link>
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Link to="/documentacion/sitioweb/softwares">
                                     Softwares
                                 </Link>
                             </Menu.Item>
