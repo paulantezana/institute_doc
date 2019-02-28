@@ -24,11 +24,11 @@ class SiteLayout extends React.PureComponent {
     }
 
     render() {
-        const { children } = this.props;
+        const { children } = this.props
         return (
             <div>
                 <Header isMobile={this.state.isMobile} />
-                { children }
+                {children}
             </div>
         )
     }

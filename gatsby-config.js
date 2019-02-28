@@ -1,6 +1,12 @@
 module.exports = {
     siteMetadata: {
-        title: `Title from titllll`,
+        title: `Documentación`,
+        author: `PaulAntezana`,
+        description: `Documentación del sistema institucional.`,
+        siteUrl: `https://paulantezana.com`,
+        social: {
+            facebook: `paul antezana`,
+        },
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -38,7 +44,7 @@ module.exports = {
                     classPrefix: "language-",
                     inlineCodeMarker: null,
                     aliases: {},
-                    showLineNumbers: false,
+                    showLineNumbers: true,
                     noInlineHighlight: false,
                   },
                 },

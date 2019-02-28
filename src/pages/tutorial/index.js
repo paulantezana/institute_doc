@@ -6,9 +6,7 @@ import SiteLayout from "../../layout/SiteLayout"
 
 export default ({ data }) => (
     <SiteLayout>
-        <div className="MainBanner">
-            Tutoriales
-        </div>
+        <div className="MainBanner">Tutoriales</div>
     </SiteLayout>
 )
 

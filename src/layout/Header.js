@@ -32,7 +32,7 @@ class Header extends React.Component {
                 <Menu.Item key="documentacion">
                     <Link to="/documentacion">Documentación</Link>
                 </Menu.Item>
-                { menuMode === "inline" && (
+                {menuMode === "inline" && (
                     <Menu.Item key="preview">
                         {/* <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
                 预览
@@ -71,8 +71,13 @@ class Header extends React.Component {
                     <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
                         <div className="header-meta">
                             <div id="preview">
-                                <a href="http://institucional.paulantezana.com" target="_blanck">
-                                    <Button icon="eye-o" type="primary" >Ingresar</Button>
+                                <a
+                                    href="http://institucional.paulantezana.com"
+                                    target="_blanck"
+                                >
+                                    <Button icon="eye-o" type="primary">
+                                        Ingresar
+                                    </Button>
                                 </a>
                             </div>
                             {menuMode === "horizontal" ? (
