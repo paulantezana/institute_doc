@@ -104,6 +104,111 @@ class Sider extends React.Component {
                                 </Link>
                             </Menu.Item>
                         </SubMenu>
+                        <SubMenu
+                            key="revision"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Revisión</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/revision/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="certificacion"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Certificación</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/certificacion/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="egresados"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Egresados</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/egresados/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="biblioteca"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Biblioteca</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/biblioteca/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="mensajeria"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Mensajería</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/mensajeria/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="sitioweb"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Sitio web</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/sitioweb/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="alumno"
+                            title={
+                                <span>
+                                    <Icon type="rest" />
+                                    <span>Alumno</span>
+                                </span>
+                            }
+                        >
+                            <Menu.Item>
+                                <Link to="/documentacion/alumno/modelos">
+                                    Modelos
+                                </Link>
+                            </Menu.Item>
+                        </SubMenu>
                     </Menu>
                 </Affix>
             </div>
