@@ -3,7 +3,7 @@ title: "Estructura de archivos del servidor"
 date: "2017-08-10"
 ---
 
-### Carpetas:
+## Carpetas:
 * 📁 **config** : Paquete que contiene todas las configuraciones del sistema como la base de datos, versiones, etc.
     - 📄 **config.go** : Se encarga de leer el archivo `config.json` y mapearlo en una estructura que pueda ser utilizado desde cualquier parte de la aplicación
     - 📄 **database.go** : Contiene la unica funcion `func GetConnection() *gorm.DB` Esta es una función que se encarga de conectar a la base de datos y devuelve un puntero de la conexión que podrá ser usado desde cualquier parte del sistema.
@@ -50,7 +50,7 @@ Es recomendable eliminar todo el contenido de esta carpeta para liberar espacio 
     - 📄 **response.go** : Estructura que sirve como una plantilla para enviar datos al cliente.
     - 📄 **token.go** : Permite firmar los claves JWT de un usuario con vigencia de 24 horas usando el método HS256
 
-### Archivos:
+## Archivos:
 * 📄 **.editorconfig**: Contiene la definición de la configuración para mantener la codificación estándar entre diferentes editores e IDEs, considera que en algunos editores tendrás que instalar un plugin adicional para que funcione, consulta el sitio [editorconfig.org](http://editorconfig.org/) para saber si tu editor o ide lo soporta nativamente o requiere algún plugin.
 * 📄 **.gitignore**: Indica que archivos y directorios ignorará Git al momento de sincronizar el proyecto, la configuración que se propone ha sido generada en el sitio [gitignore.io](https://www.gitignore.io/) y es esta: [osx,node,macos,linux,windows,visualstudiocode](https://www.gitignore.io/api/osx,node,macos,linux,windows,visualstudiocode) siéntete libre de modificarla a tus necesidades.
 * 📄 **main.go** : **Es el archivo que inicia todo el sistema.**

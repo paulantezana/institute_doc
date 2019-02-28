@@ -1,0 +1,23 @@
+.ApiPageContent{
+    position: relative;
+    min-height: 500px;
+    padding: 0 170px 144px 32px;
+    overflow: hidden;
+    @include to(m){
+        margin-right: 0;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+    h1{
+        color: $firstColor;
+    }
+}
+
+.ApiPageAnchor{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    .ant-anchor-link{
+        font-size: 12px;
+    }
+}

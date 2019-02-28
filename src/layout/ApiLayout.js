@@ -4,7 +4,7 @@ import { enquireScreen } from "enquire-js"
 import Header from "./Header"
 import ApiMenu from "./ApiMenu"
 
-import { Row, Col, Card } from "antd"
+import { Row, Col } from "antd"
 
 let isMobile
 
@@ -30,12 +30,12 @@ class SiteLayout extends React.PureComponent {
         return (
             <div>
                 <Header isMobile={this.state.isMobile} />
-                <Row>
+                <Row style={{marginTop: '32px'}}>
                     <Col lg={6} xl={5} xxl={4}>
                         <ApiMenu />
                     </Col>
                     <Col lg={18} xl={19} xxl={20}>
-                        <Card bordered={false}>{children}</Card>
+                        {children}
                     </Col>
                 </Row>
             </div>

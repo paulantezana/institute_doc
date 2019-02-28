@@ -4,7 +4,7 @@ date: "2019-27-02"
 ---
 
 
-## Tabla AdmissionSetting
+## AdmissionSetting
 En esta tabla se almacena la informacion de cada proceso de admision ya sea de cada año o de una temporada
 los datos almacenados en esta tabla luego son usado spor la tabla `Admission` para realizar los calculos pertinentes
 ```go
@@ -32,7 +32,7 @@ type AdmissionSetting struct {
 - **SubsidiaryID(requerido)** ID de la filial en el que se aperturo el proceso de admision
 - **Admissions(opcional)** Referencia a la tabla `Admission`
 
-## Tabla Admission
+## Admission
 Se usa para almacenar los datos del proceso de admission de todo los años es importante
 que este tabla este relaciondo con la tabla `AdmissionSetting` ya que hace una copia de 
 algunos campos ademas le sirve para hacer calculos como la clase y los asientos

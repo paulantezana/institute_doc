@@ -3,10 +3,7 @@ title: "Modelos de la base de datos"
 date: "2019-27-02"
 ---
 
-* [Tabla Subsidiary](#tabla-subsidiary)
-* [Tabla SubsidiaryUser](#tabla-subsidiaryuser)
-
-## Tabla Subsidiary:
+## Subsidiary:
 Se usa para almacenar las filiales
 ```go
 type Subsidiary struct {
@@ -37,7 +34,7 @@ type Subsidiary struct {
     Valor por defecto `false`
 - **Phone(opcional)** Campo para almacenar el teléfono de la filial
 
-## Tabla SubsidiaryUser
+## SubsidiaryUser
 Se usa para asignarle los permisos a un usuario sobre una filial.
 se tiene que crear de forma automática las referencias te todo los usuarios con todo los filiales que existan
 con el valor por defecto en el campo `License` en false
@@ -62,7 +59,7 @@ type SubsidiaryUser struct {
 
 
 
-## Tabla Program
+## Program
 Se usa para almacenar los programas de estudios de cada filial
 ```go
 type Program struct {
@@ -80,7 +77,7 @@ type Program struct {
 
 
 
-## Tabla ProgramUser
+## ProgramUser
 Se usa para asignarle los permisos a un usuaro sobre un programa de estudios.
 se tiene que crear de forma automática las referencias te todo los usuarios con todo los programas de estudios que existan
 con el valor por defecto en el campo `License` en false
@@ -104,7 +101,7 @@ type ProgramUser struct {
 
 
 
-## Tabla Semester
+## Semester
 Se usa para almacenar los semestres de cada programa de estudios
 ```go
 type Semester struct {
@@ -126,7 +123,7 @@ type Semester struct {
 - **ProgramID(requerido)** ID del programa de estudios a la que pertenece este semestre
 
 
-## Tabla Module
+## Module
 Se usa para alamcenar los modulos de un programa de estudios
 ```go
 type Module struct {
@@ -153,7 +150,7 @@ type Module struct {
 - **Semesters(opcional)** Referencia a los semestres que esta asignado el modulo
 
 
-## Tabla ModuleSemester
+## ModuleSemester
 Se usa en la relacionde muchos a muchos de las tablas `Module` y `Semester`
 ```go
 type ModuleSemester struct {
@@ -166,7 +163,7 @@ type ModuleSemester struct {
 - **SemesterID(requerido)** ID del semestre
 - **ModuleID(requerido)** ID del modulo
 
-## Tabla Student
+## Student
 Se usa para almacenar a los alumnos
 ```go
 type Student struct {
@@ -215,7 +212,7 @@ type Student struct {
 - **StudentStatusID(requerido)** ID del estado actual del alumno
 
 
-## Tabla StudentHistory
+## StudentHistory
 Se usa para almacenar el historial del alumno cada que se hace alguna modificacion, o acciones en el sistema
 como por ejemplo:
 - Inscribir a un poceros de admisión
@@ -244,7 +241,7 @@ type StudentHistory struct {
 - **Date(requerido)** Campo para almacenar la fecha en la que se creo el nuevo historial
 
 
-## Tabla StudentProgram
+## StudentProgram
 Se usa para relacionar los alumnos con los programas de estudios para 
 hacerle el seguimiento de forma adecuada
 
@@ -271,7 +268,7 @@ type StudentProgram struct {
 - **YearAdmission(opcional)** Campo para almacenar el año de promoción o egreso del alumno
 
 
-## Tabla StudentStatus
+## StudentStatus
 Se usa para almacenar los diferentes estados que puede tener el alumno
 
 ```go
@@ -284,7 +281,7 @@ type StudentStatus struct {
 ### Campos
 - **Name()** Campo usado para almacenar nombre del estado del alumno
 
-## Datos
+### Datos
 los todos de esta tabla se insertan de forma dinámica al migrar los modelos a la base de datos
 
 1. **No asignado**   : Es cuando un alumno fue insertado de forma dinámica desde los archivos de Excel
@@ -299,7 +296,7 @@ los todos de esta tabla se insertan de forma dinámica al migrar los modelos a l
 10. **Egresado**         : Egresados
 
 
-## Tabla Teacher
+## Teacher
 Se usa para almacenar los datos de los profesores
 ```go
 type Teacher struct {
@@ -347,7 +344,7 @@ type Teacher struct {
 - **TeacherPrograms(requerido)** Referencia a todo los programas de estudios en la que esta el profesor
 
 
-## Tabla TeacherAction
+## TeacherAction
 Se usa para registrar toda las acciones que realiza el profesor en el sistema como por ejemplo 
 registrar las notas del estudiante hacer supervisiones y entre otros.
 
@@ -371,7 +368,7 @@ type TeacherAction struct {
 - **TeacherID(requerido)** ID del profesor quien esta realizando la acción
 
 
-## Tabla TeacherProgram
+## TeacherProgram
 Se usa para relacionar los profesores con los programas de estudios para 
 
 ya que un profesor puede estar asignado en diferentes programas de estudios
@@ -397,7 +394,7 @@ type TeacherProgram struct {
     - `career`  : de carrera
 
 
-## Tabla Unity
+## Unity
 Se usa para registrar todas los unidades didácticas que se dictan en un programa de estudios 
 por semestre
 
