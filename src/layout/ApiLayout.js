@@ -30,7 +30,7 @@ class SiteLayout extends React.PureComponent {
         return (
             <div>
                 <Header isMobile={this.state.isMobile} />
-                <Row style={{marginTop: '32px'}}>
+                <Row style={{ marginTop: "32px" }}>
                     <Col lg={6} xl={5} xxl={4}>
                         <ApiMenu />
                     </Col>

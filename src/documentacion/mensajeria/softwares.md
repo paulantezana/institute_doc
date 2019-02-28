@@ -10,9 +10,9 @@ En el lado del Backend esta el lenguaje de programación [Golang](https://golang
 
 * **[Go]** Es un lenguaje de programación concurrente y compilado inspirado en la sintaxis de C
 * **[Echo]** Go web framework de alto rendimiento, extensible y minimalista.
-* **[Excelize]** Excelize es una biblioteca escrita en [Go] puro y que proporciona un conjunto de funciones que le permiten escribir y leer desde archivos **XLSX**
 * **[JWT-Go]** Los tokens Web de **JSON** son un método abierto, estándar de la industria RFC 7519 para representar reclamos de forma segura entre dos partes.
 * **[Gorm]** es una biblioteca ORM fantástica para [Go], apunta a ser amigable para los desarrolladores. Es una biblioteca ORM para tratar con bases de datos relacionales
+* **[Melody]** Melody es un marco websocket basado en [websocket](https://github.com/gorilla/websocket) que abstrae las partes tediosas del manejo de websockets. Se sale de su camino para que pueda escribir aplicaciones en tiempo real.
 
 ## Frontent
 En el lado del Frontend el lenguaje de programación principal es [JavaScript] usando la librería [React] para crear las interfaces interactivas. Y no podía faltar el **CSS** y **SCSS** para la darle apariencia colores y estilos al SPA
@@ -27,9 +27,7 @@ En el lado del Frontend el lenguaje de programación principal es [JavaScript] u
 * **[Moment]** Es una librería de [JavaScript] para darle formatos a las fechas
 * **[NProgress]** Una barra de progreso nanoscópica. Con animaciones de goteo realistas para decirle a tus usuarios que algo está sucediendo.
 * **[JWT-decode]** Es una pequeña biblioteca del navegador que ayuda a descodificar el token **JWT** que está codificado en Base64Url.
-* **[PDFmake]** Es una librería de [JavaScript] para generar PDFS
 * **[Umi]** umi es un marco basado en enrutamiento que admite enrutamiento convencional similar a [next.js](https://nextjs.org/) y varias funciones de enrutamiento avanzadas, como la carga a pedido de nivel de enrutamiento. Con un completo sistema de complementos que cubre cada ciclo de vida, desde el código fuente hasta la creación del producto, umi es capaz de soportar varias extensiones funcionales y necesidades comerciales. Actualmente umi tiene casi más de 50 complementos tanto en la comunidad como dentro de la empresa.
-* **[React-excel-workbook]** es una biblioteca para definir libros de Excel descargables con componentes de [React].
 * **[React-document-title]** Proporciona una forma declarativa de especificar document.title en una aplicación de una sola página.
 
 ## DB

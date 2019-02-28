@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import SiteLayout from "../../layout/SiteLayout"
-import { Row, Col, Menu, Card } from "antd";
+import { Row, Col, Menu, Card } from "antd"
 // import { Button } from "antd";
 // import { Link } from "gatsby";
-
 
 export default ({ data }) => (
     <SiteLayout>

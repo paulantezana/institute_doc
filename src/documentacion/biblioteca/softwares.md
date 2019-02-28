@@ -27,7 +27,6 @@ En el lado del Frontend el lenguaje de programación principal es [JavaScript] u
 * **[Moment]** Es una librería de [JavaScript] para darle formatos a las fechas
 * **[NProgress]** Una barra de progreso nanoscópica. Con animaciones de goteo realistas para decirle a tus usuarios que algo está sucediendo.
 * **[JWT-decode]** Es una pequeña biblioteca del navegador que ayuda a descodificar el token **JWT** que está codificado en Base64Url.
-* **[PDFmake]** Es una librería de [JavaScript] para generar PDFS
 * **[Umi]** umi es un marco basado en enrutamiento que admite enrutamiento convencional similar a [next.js](https://nextjs.org/) y varias funciones de enrutamiento avanzadas, como la carga a pedido de nivel de enrutamiento. Con un completo sistema de complementos que cubre cada ciclo de vida, desde el código fuente hasta la creación del producto, umi es capaz de soportar varias extensiones funcionales y necesidades comerciales. Actualmente umi tiene casi más de 50 complementos tanto en la comunidad como dentro de la empresa.
 * **[React-excel-workbook]** es una biblioteca para definir libros de Excel descargables con componentes de [React].
 * **[React-document-title]** Proporciona una forma declarativa de especificar document.title en una aplicación de una sola página.

@@ -117,6 +117,9 @@ class Sider extends React.Component {
                                 <Link to="/documentacion/revision/modelos">
                                     Modelos
                                 </Link>
+                                <Link to="/documentacion/revision/softwares">
+                                    Softwares
+                                </Link>
                             </Menu.Item>
                         </SubMenu>
                         <SubMenu
@@ -131,6 +134,11 @@ class Sider extends React.Component {
                             <Menu.Item>
                                 <Link to="/documentacion/certificacion/modelos">
                                     Modelos
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/certificacion/softwares">
+                                    Softwares
                                 </Link>
                             </Menu.Item>
                         </SubMenu>
@@ -148,6 +156,11 @@ class Sider extends React.Component {
                                     Modelos
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/egresados/softwares">
+                                    Softwares
+                                </Link>
+                            </Menu.Item>
                         </SubMenu>
                         <SubMenu
                             key="biblioteca"
@@ -161,6 +174,11 @@ class Sider extends React.Component {
                             <Menu.Item>
                                 <Link to="/documentacion/biblioteca/modelos">
                                     Modelos
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/biblioteca/softwares">
+                                    Softwares
                                 </Link>
                             </Menu.Item>
                         </SubMenu>
@@ -178,6 +196,11 @@ class Sider extends React.Component {
                                     Modelos
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/mensajeria/softwares">
+                                    Softwares
+                                </Link>
+                            </Menu.Item>
                         </SubMenu>
                         <SubMenu
                             key="sitioweb"
@@ -193,6 +216,11 @@ class Sider extends React.Component {
                                     Modelos
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/sitioweb/softwares">
+                                    Softwares
+                                </Link>
+                            </Menu.Item>
                         </SubMenu>
                         <SubMenu
                             key="alumno"
@@ -206,6 +234,11 @@ class Sider extends React.Component {
                             <Menu.Item>
                                 <Link to="/documentacion/alumno/modelos">
                                     Modelos
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/alumno/softwares">
+                                    Softwares
                                 </Link>
                             </Menu.Item>
                         </SubMenu>

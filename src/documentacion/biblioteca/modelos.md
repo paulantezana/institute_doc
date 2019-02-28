@@ -1,79 +1,152 @@
 ---
-title: "Modelos de la base de datos ADMISION"
+title: "Modelos del sistema de biblioteca."
 date: "2019-27-02"
 ---
 
-
-## AdmissionSetting
-En esta tabla se almacena la informacion de cada proceso de admision ya sea de cada año o de una temporada
-los datos almacenados en esta tabla luego son usado spor la tabla `Admission` para realizar los calculos pertinentes
+## Category
+Se usa para almacenar las categorías de los libros.
+Use el `ParentID` para poder registrar categorías de infinitos niveles
 ```go
-type AdmissionSetting struct {
-	ID              uint   `json:"id" gorm:"primary_key"`
-	VacantByProgram uint   `json:"vacant_by_program"`
-	Year            uint   `json:"year"`
-	Seats           uint   `json:"seats"`
-	Description     string `json:"description"`
-	ShowInWeb       bool   `json:"show_in_web"`
+type Category struct {
+	ID       uint   `json:"id" gorm:"primary_key"`
+	Name     string `json:"name"`
+	ParentID uint   `json:"parent_id"`
+	State    bool   `json:"state" gorm:"default:'true'"`
 
-	SubsidiaryID uint        `json:"subsidiary_id"`
-	Admissions   []Admission `json:"admissions, omitempty"`
+	Books []Book `json:"books, omitempty"`
 }
 ```
 ### Campos
-- **VacantByProgram(requerido)** Campo para ingresar el numero maximo de vacantes por porgrama de estudios
-- **Year(requerido)** Campo para ingresar el año actual
-- **Seats(requerido)** Campo para ingresar el numero de asientos por clase
-- **Description(requerido)** Alguna descripcion extra sobre este porceso de admision
-- **ShowInWeb(opcional)** Cuando ya se tenga los resultados de las exámenes que se rindió se puede habilitar  este campo a `true` para mostrar los resultados de manera publica como en un sitio web 
-    - `true` : Los resultados de la evaluación estarán de manera pública
-    - `false` : Los resultado seran privados
-    - Valor por defecto `true`
-- **SubsidiaryID(requerido)** ID de la filial en el que se aperturo el proceso de admision
-- **Admissions(opcional)** Referencia a la tabla `Admission`
+- **Name(requerido)** : Campo para registrar el nombre de la categoría.
+- **ParentID(requerido)** : ID de la categoría padre para crear categorías de niveles infinitos.
+- **State(requerido)** : Campo para indicar el estado de la categoría.
+- **Books(requerido)** : Referencia a los libros que pertenecen a la categoría.
 
-## Admission
-Se usa para almacenar los datos del proceso de admission de todo los años es importante
-que este tabla este relaciondo con la tabla `AdmissionSetting` ya que hace una copia de 
-algunos campos ademas le sirve para hacer calculos como la clase y los asientos
-
+## Book
+Se usa para registrar los libros por categorías
 ```go
-type Admission struct {
-	ID            uint      `json:"id" gorm:"primary_key"`
-	Observation   string    `json:"observation"`
-	Exonerated    bool      `json:"exonerated"`
-	ExamNote      float32   `json:"exam_note"`
-	ExamDate      time.Time `json:"exam_date"`
-	AdmissionDate time.Time `json:"admission_date"`
-	Year          uint      `json:"year"`
-	Classroom     uint      `json:"classroom"`
-	Seat          uint      `json:"seat"`
-	State         bool      `json:"state" gorm:"default:'true'"`
+type Book struct {
+	ID               uint       `json:"id" gorm:"primary_key"`
+	Name             string     `json:"name"`
+	ShortDescription string     `json:"short_description"`
+	LongDescription  string     `json:"long_description"`
+	Author           string     `json:"author"`
+	Editorial        string     `json:"editorial"`
+	YearEdition      uint       `json:"year_edition"`
+	Version          uint       `json:"version"`
+	EnableDownload   bool       `json:"enable_download"`
+	Avatar           string     `json:"avatar"`
+	Pdf              string     `json:"pdf"`
+	State            bool       `json:"state" gorm:"default:'true'"`
+	Views            uint32     `json:"views"`
 
-	StudentID          uint `json:"student_id"`
-	ProgramID          uint `json:"program_id"`
-	UserID             uint `json:"user_id"`
-	AdmissionSettingID uint `json:"admission_setting_id"`
+	CategoryID uint `json:"category_id"`
+	UserID     uint `json:"user_id"`
+
+	Comments []Comment `json:"comments, omitempty"`
+	Readings []Reading `json:"readings, omitempty"`
+	Likes    []Like    `json:"likes, omitempty"`
 }
 ```
 
 ### Campos
-- **Observation(opcional)**  Campo para agregar alguna observación de la admision
-- **Exonerated(opcional)**  Para especificar si el alumno es exonerado o no
-    - false : alumno regular
-    - true  : Indica que el alumno es **Exonerado**
-    - valor por defecto false
-- **ExamNote(opcional)**  Resultadi de la evaluacion del examen que rindio el alumno
-- **ExamDate(opcional)**  Fecha en que se rindio el examen
-- **AdmissionDate(requerido)** Fecha en que el alumno se inscrivio al proceso de admision
-- **Year(requerido)** Campo para ingresar el año actual del porceso de admision. Este campo se debe hacer una copia de la tabla padre AdmissionSetting su campo Year 
-- **Classroom(requerido)** Campo para ingresar la clase en la cual redira el examen
-- **Seat(requerido)** Campo para ingresar el lugar exacto donde se sentara el alumno para redir su examen
-- **State(opcional)** Estado de la admision - Utilize este campo para anular la admision
-    - false : admision anulada
-    - true  : alumno en proceso de admision
-    - Valor por defecto true
-- **StudentID(requerido)** ID del alumno a la que se esta registrando en el proceso de admision
-- **ProgramID(requerido)** ID del programa de estudios a la cual esta postulando
-- **UserID(requerido)** ID del usuario que esta registrando este registro
-- **AdmissionSettingID(requerido)** ID de la configuracion de la admision
+- **Name(requerido)** Campo para registrar el nombre o titulo
+- **ShortDescription(opcional)** Campo para registrar una descripción corta
+- **LongDescription(opcional)** Campo para registrar una descripción larga
+- **Author(opcional)** Campo para registrar el autor
+- **Editorial(opcional)** Campo para registrar el editorial
+- **YearEdition(opcional)** Campo para registrar la edición del año
+- **Version(opcional)** Campo para registrar la versión
+- **EnableDownload(opcional)** Campo para habilitar la descarga
+- **Avatar(opcional)** Campo para registrar la URL de la foto de la portada
+- **Pdf(opcional)** Campo para registrar la URL del PDF que se subió
+- **State(opcional)** Estado
+- **Views(opcional)** Campo para registrar el número de visitas que tiene el libro
+- **CategoryID(opcional)** ID de la categoría a la que pertenece el libro
+- **UserID(opcional)** ID del usuario quien registro el libro
+- **Comments(opcional)** Referencia a la tabla `Comment` de todos los comentarios acerca del libro
+- **Readings(opcional)** Referencias a las lecturas de los libros
+- **Likes(opcional)** Referencia likes que tiene el libro
+
+
+## Reading
+Se usa para registrar toda las lecturas que realiza un usuario acerca de un libro en especifico
+```go
+type Reading struct {
+	ID   uint      `json:"id" gorm:"primary_key"`
+	Date time.Time `json:"date"`
+
+	UserID uint `json:"user_id"`
+	BookID uint `json:"book_id"`
+}
+```
+
+### Campos
+- **Date(requerido)** Campo para registrar la fecha en la que se realizo la lectura del libro
+- **UserID(requerido)** ID del usuario quien realizo la lectura
+- **BookID(requerido)** ID del libro a la que se izo la lectura
+
+## Comment
+Se usa para registrar los cometarios use el `ParentID` para responde un comentario existente
+
+```go
+type Comment struct {
+	ID        uint      `json:"id" gorm:"primary_key"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+	ParentID  uint      `json:"parent_id"` // Parent comment ID
+	Votes     uint32    `json:"votes"`
+	HasVote   int8      `json:"has_vote" gorm:"-"` // if current user has vote
+	Body      string    `json:"body"`
+
+	UserID uint `json:"user_id"`
+	BookID uint `json:"book_id"`
+
+	User     []User    `json:"user, omitempty"`
+	Children []Comment `json:"children, omitempty"`
+}
+```
+
+### Campos
+- **ParentID(requerido)** ID del comentario padre que se usa para responder un comentario existente
+- **Votes(requerido)** Campo para registrar el número de votos del comentario
+- **HasVote(requerido)** Campo para registrar si el usuario que está tratando de votar ya voto
+- **Body(requerido)** Campo para registrar el contenido del comentario
+- **UserID(requerido)** ID del usuario que hizo el comentario
+- **BookID(requerido)** ID del libro en la que se está haciendo el comentario
+- **User(referencia)** Referencia a todos los usuarios que asieron comentarios en el libro
+- **Children(referencia)** Referencia a las respuestas de los comentarios
+
+
+## Like
+Se usa para registras los likes o las votaciones que tiene un libro
+```go
+type Like struct {
+	ID    uint  `json:"id" gorm:"primary_key"`
+	Stars uint8 `json:"stars"`
+
+	UserID uint `json:"user_id"`
+	BookID uint `json:"book_id"`
+}
+```
+
+### Campos
+- **Stars(requerido)** Campo para registrar el número de likes o votos acerca de un libro
+- **UserID(requerido)** ID del usuario que realizo el voto
+- **BookID(requerido)** ID del libro a la que se está realizando la votación
+
+
+## Vote
+Se usa para registrar las votaciones de un comentario que se izo en un libro o una respuesta aun comentario existente
+```go
+type Vote struct {
+	ID        uint `json:"id" gorm:"primary_key"`
+	CommentID uint `json:"comment_id" gorm:"not null"`
+	UserID    uint `json:"user_id" gorm:"not null"`
+	Value     bool `json:"value" gorm:"not null"`
+}
+```
+### Campos
+- **CommentID(requerido)** ID del comentario a la que se está realizando la votación
+- **UserID(requerido)** ID del usuario quien está realizando la votación
+- **Value(requerido)** El valor de la votación

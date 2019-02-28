@@ -13,6 +13,7 @@ En el lado del Backend esta el lenguaje de programación [Golang](https://golang
 * **[Excelize]** Excelize es una biblioteca escrita en [Go] puro y que proporciona un conjunto de funciones que le permiten escribir y leer desde archivos **XLSX**
 * **[JWT-Go]** Los tokens Web de **JSON** son un método abierto, estándar de la industria RFC 7519 para representar reclamos de forma segura entre dos partes.
 * **[Gorm]** es una biblioteca ORM fantástica para [Go], apunta a ser amigable para los desarrolladores. Es una biblioteca ORM para tratar con bases de datos relacionales
+* **[Melody]** Melody es un marco websocket basado en [websocket](https://github.com/gorilla/websocket) que abstrae las partes tediosas del manejo de websockets. Se sale de su camino para que pueda escribir aplicaciones en tiempo real.
 
 ## Frontent
 En el lado del Frontend el lenguaje de programación principal es [JavaScript] usando la librería [React] para crear las interfaces interactivas. Y no podía faltar el **CSS** y **SCSS** para la darle apariencia colores y estilos al SPA
