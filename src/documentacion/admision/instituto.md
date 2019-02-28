@@ -3,7 +3,10 @@ title: "Modelos de la base de datos"
 date: "2019-27-02"
 ---
 
-## Tabla Subsidiary
+* [Tabla Subsidiary](#tabla-subsidiary)
+* [Tabla SubsidiaryUser](#tabla-subsidiaryuser)
+
+## Tabla Subsidiary:
 Se usa para almacenar las filiales
 ```go
 type Subsidiary struct {
