@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import SiteLayout from "../layout/SiteLayout"
 import MainBanner from "../components/MainBanner"
-import { Button, Divider, List, Card, Icon } from "antd"
+import { Button, Divider, List, Card, Icon, Tooltip } from "antd"
 
 import {
     IconAdmission,
@@ -61,7 +61,7 @@ const dataSistem = [
         img: IconWebSite,
         code: "https://gitlab.com/sedna-sn/website",
         view: "https://enfermeriatecnicaiestpvilcanota.paulantezana.com",
-        doc: "/documentacion/sitioweb/modelos",
+        doc: "/documentacion/sitioweb/tema",
     },
     {
         title: "Chat",
@@ -102,24 +102,30 @@ export default ({ data }) => (
                                 <div className="Center">
                                     <div style={{marginTop: '8px'}}>
                                         <Link to={item.doc}>
-                                            <Button
-                                                shape="circle"
-                                                icon="book"
-                                            />
+                                            <Tooltip title="Documentación">
+                                                <Button
+                                                    shape="circle"
+                                                    icon="book"
+                                                />
+                                            </Tooltip>
                                         </Link>
                                         <Divider type="vertical" />
                                         <a target="_blanck" href={item.view}>
-                                            <Button
-                                                shape="circle"
-                                                icon="global"
-                                            />
+                                            <Tooltip title="Ir al sistema">
+                                                <Button
+                                                    shape="circle"
+                                                    icon="global"
+                                                />
+                                            </Tooltip>
                                         </a>
                                         <Divider type="vertical" />
                                         <a target="_blanck" href={item.code}>
-                                            <Button
-                                                shape="circle"
-                                                icon="github"
-                                            />
+                                            <Tooltip title="Codigo fuente">
+                                                <Button
+                                                    shape="circle"
+                                                    icon="github"
+                                                />
+                                            </Tooltip>
                                         </a>
                                     </div>
                                 </div>

@@ -244,8 +244,13 @@ class Sider extends React.Component {
                             }
                         >
                             <Menu.Item>
-                                <Link to="/documentacion/sitioweb/modelos">
-                                    Modelos
+                                <Link to="/documentacion/sitioweb/tema">
+                                    Theme
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Link to="/documentacion/sitioweb/plugin">
+                                    Plugin
                                 </Link>
                             </Menu.Item>
                             <Menu.Item>
