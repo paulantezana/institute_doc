@@ -50,6 +50,7 @@ module.exports = {
                     },
                 },
                 `gatsby-remark-external-links`,
+                `gatsby-remark-responsive-iframe`,
               ],
             },
         },
