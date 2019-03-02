@@ -39,3 +39,7 @@ video,iframe,img,svg{
     margin-top: 64px;
     margin-bottom: 32px;
 }
+
+.BannerB{
+    @extend .Sistems;
+}
