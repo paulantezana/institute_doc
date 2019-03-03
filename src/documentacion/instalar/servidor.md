@@ -29,17 +29,16 @@ Tenemos varios métodos para subir archivos al servidor como [filezilla](https:/
 Subir archivo
 comando: scp miApp usuario@ip directorio
 ```bash
-$ scp instituteL  yoel@13.68.218.250:/home/yoel/instituteapp/institute_server
-yoel@13.68.218.250's password:
+$ scp -i KeyPairSednaServer.pem instituteL ubuntu@13.68.218.250:/home/ubuntu/instituteapp/institute_server
 instituteL                              100%   14MB  47.8KB/s   04:59
 ```
 
 Subir el resto de carpetas y los archivos necesario para el funcionamiento del sistema
 ```bash
-$ scp -rp static/ yoel@13.68.218.250:/home/yoel/instituteapp/institute_server
-$ scp -rp temp/ yoel@13.68.218.250:/home/yoel/instituteapp/institute_server
-$ scp -rp templates/ yoel@13.68.218.250:/home/yoel/instituteapp/institute_server
-$ scp config.json  yoel@13.68.218.250:/home/yoel/instituteapp/institute_server
+$ scp -i KeyPairSednaServer.pem -rp static/ ubuntu@13.68.218.250:/home/ubuntu/instituteapp/institute_server
+$ scp -i KeyPairSednaServer.pem -rp temp/ ubuntu@13.68.218.250:/home/ubuntu/instituteapp/institute_server
+$ scp -i KeyPairSednaServer.pem -rp templates/ ubuntu@13.68.218.250:/home/ubuntu/instituteapp/institute_server
+$ scp -i KeyPairSednaServer.pem config.json  ubuntu@13.68.218.250:/home/ubuntu/instituteapp/institute_server
 ```
 
 ## 3 Cambiar los permisos
@@ -61,16 +60,44 @@ $ sudo apt-get update
 $ sudo apt-get install postgresql
 ```
 
-Ejecuta el siguiente comando para verificar si la instalación fue exitosa
+Editar el archivo de configuración pg_hba.conf
 ```bash
-$ psql postgres
+$ sudo vim /etc/postgresql/10/main/pg_hba.conf
+```
+Actualice la parte inferior del archivo, debe quedar de la siguiente forma
+```vim
+# Database administrative login by Unix domain socket
+local   all             postgres                                trust
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
 ```
 
-<!-- ### Configurar
-Configurar
+Edite el siguiente archivo - postgresql.conf
+```
+$ sudo vim /etc/postgresql/10/main/postgresql.conf
+```
+
+Descomenta y edita las siguientes líneas -
+```vim
+listen_addresses = 'localhost'
+```
+
+Reinicial postgres
 ```bash
- $ sudo vim /etc/postgresql/10/main/pg_hba.conf
-``` -->
+$ sudo /etc/init.d/postgresql restart
+```
+
+Ejecuta el siguiente comando para ingresar a la base de datos
+```bash
+$ psql -U postgres
+```
 
 ### Crear un Nuevo Rol
 Por defecto, Postgress utiliza un concepto llamado "roles" que maneja identificación y autorización. Estos son, de algún modo, similares a los estilos de cuentas en Unix, pero Postgres no distingue entre usuarios y grupos y en su lugar prefiere ser más flexible con el término "rol"
@@ -79,21 +106,36 @@ Al concluir la instalación Postgres está listo para utilizar la identificació
 
 para realizar esta operación primero debe ingresar a la base de datos con el usuario postgres
 ```sql
-CREATE ROLE yoel LOGIN PASSWORD 'cascadesheet'
+CREATE ROLE institute_user LOGIN PASSWORD 'newright789'
 ```
 
 ### Crear la base de datos
 De forma predeterminada, otra suposición que hace el sistema de autenticación de Postgres es que habrá una base de datos con el mismo nombre que el rol que se utiliza para iniciar la sesión, a la que el rol tiene acceso.
 
-en este caso usaremo el usuario yoel que creamos anteriormente.
+en este caso usaremo el usuario institute_user que creamos anteriormente.
 ```sql
-CREATE DATABASE institute OWNER yoel
+CREATE DATABASE institute OWNER institute_user
 ```
 
 ## Test
 ejecute el binario que subio al servidor
 ```bash
 $ ./instituteL
+(D:/golang/src/github.com/paulantezana/review/migration/migration.go:15)
+[2019-03-03 19:21:53]  [3.90ms]  CREATE TABLE "message_recipients" ("id" serial,"created_at" timestamp with time zone,"updated_at" timestamp with time zone,"is_read" boolean,"recipient_id" integer,"recipient_group_id" integer,"message_id" integer , PRIMARY KEY ("id"))
+[0 rows affected or returned ]
+
+(D:/golang/src/github.com/paulantezana/review/migration/migration.go:15)
+[2019-03-03 19:21:53]  [6.40ms]  CREATE TABLE "reminder_frequencies" ("id" serial,"created_at" timestamp with time zone,"updated_at" timestamp with time zone,"name" text,"frequency" numeric,"is_active" boolean , PRIMARY KEY ("id"))
+[0 rows affected or returned ]
+
+(D:/golang/src/github.com/paulantezana/review/migration/migration.go:15)
+[2019-03-03 19:21:53]  [6.15ms]  CREATE TABLE "sessions" ("id" serial,"created_at" timestamp with time zone,"updated_at" timestamp with time zone,"ip_address" text,"user_id" integer,"last_activity" timestamp with time zone , PRIMARY KEY ("id"))
+[0 rows affected or returned ]
+
+(D:/golang/src/github.com/paulantezana/review/migration/migration.go:15)
+[2019-03-03 19:21:53]  [3.92ms]  CREATE TABLE "user_groups" ("id" serial,"created_at" timestamp with time zone,"updated_at" timestamp with time zone,"date" timestamp with time zone,"is_active" boolean DEFAULT 'true',"is_admin" boolean,"user_id" integer,"group_id" integer , PRIMARY KEY ("id"))
+[0 rows affected or returned ]
 
    ____    __
   / __/___/ /  ___
@@ -103,7 +145,6 @@ High performance, minimalist Go web framework
 https://echo.labstack.com
 ____________________________________O/_______
                                     O\
-
 ⇨ http server started on [::]:1323
 ```
 como se puede apreciar la aplicacion corre de manera correcta
@@ -119,9 +160,9 @@ configuracion
 Description="API service de GO para el sistema institucional"
 
 [Service]
-ExecStart=/home/yoel/instituteapp/institute_server/instituteL
-WorkingDirectory=/home/yoel/instituteapp/institute_server
-User=yoel
+ExecStart=/home/ubuntu/instituteapp/institute_server/instituteL
+WorkingDirectory=/home/ubuntu/instituteapp/institute_server
+User=ubuntu
 Restart=always
 
 [Install]
@@ -136,6 +177,11 @@ sudo systemctl enable institute.service
 iniciar el servicio
 ```bash
 sudo systemctl start institute.service
+```
+
+verificar el servicio
+```bash
+sudo systemctl status institute.service
 ```
 
 ## 6 Proxy

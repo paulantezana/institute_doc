@@ -3,6 +3,10 @@ title: "Prerequisistos"
 date: "2019-03-02"
 ---
 ## Instalacion
+<div class="Center">
+
+</div>
+
 
 ## Login general
 <div class="Center">

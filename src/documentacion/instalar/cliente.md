@@ -7,17 +7,22 @@ siguiendo las instrucciones de jonatan mircha YOUTUBE
 
 https://www.youtube.com/watch?v=s_mNK_lg2Jw&list=PLvq-jIkSeTUY3gY-ptuqkNEXZHsNwlkND&index=67
 
+## Instalar NPM
 ```bash
 sudo apt-get update
-sudo apt-get install nodejs
 sudo apt-get install npm
+```
+
+## Instalar GIT
+```bash
+sudo apt-get update
 sudo apt-get install git
 ```
 
+## Instalar NVM
 Instalar nodejs con NVM
 
 ```bash
-sudo apt-get remove nodejs
 sudo apt-get install build-essential libssl-dev
 ```
 
@@ -26,16 +31,21 @@ ir a [repositorio](https://github.com/creationix/nvm) para la instalación de NV
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 source ~/.bashrc
-nvm install 10.15.1
-nvm use 10.15.1
+nvm ls-remote
+nvm install 10.15.2
+nvm use 10.15.2
 nvm ls
 ```
 
-Configurar un Servidor Proxy
-
+## Instalar nginx
 ```bash
 sudo apt-get update
 sudo apt-get install nginx
+```
+
+## Configurar Proxy
+Configurar un Servidor Proxy
+```bash
 sudo vi /etc/nginx/sites-available/default
 ```
 
@@ -57,7 +67,16 @@ server {
 ```bash
 sudo service nginx restart
 ```
+### Proxy Auxiliar
+(no es recomendable) en caso de no tener un dominio se puede configurar la tarjeta de red en ubuntu SOLO EN DEV
+```bash
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3102
+```
+```bash
+sudo service nginx restart
+```
 
+## Instalar PM2
 Instalación i configuración PM2 para mantener ejecutando app nodejs 
 
 ```bash
@@ -65,17 +84,7 @@ npm install pm2 -g
 ```
 
 ```bash
-pm2 start server.js
-```
-
-en caso de no tener un dominio se puede configurar la tarjeta de red en ubuntu SOLO EN DEV
-
-```bash
-sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3102
-```
-
-```bash
-sudo service nginx restart
+pm2 start npm --name "{app_name}" -- run {script_name}
 ```
 
 ```bash
