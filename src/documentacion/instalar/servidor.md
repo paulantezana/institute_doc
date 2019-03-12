@@ -3,6 +3,61 @@ title: "Instalar Servidor"
 date: "2019-27-02"
 ---
 
+## Usuario
+Crear un nuevo usuario
+```bash
+$ adduser paul
+```
+
+Añadir el usuario al grupo sudo
+```bash
+$ gpasswd -a paul sudo
+```
+Crear carpeta .ssh
+```bash
+$ mkdir /home/paul/.ssh
+$ chmod 700 /home/mynewuser/.ssh
+```
+
+Crear archivo de claves autorizadas
+```bash
+$ touch /home/paul/.ssh/authorized_keys
+```
+
+A partir de ahí, iniciará sesión como usuario y creará su clave SSH. Por lo general, uso una tecla más pesada con más rondas de KDF, aunque puede demorar el inicio de sesión de unos segundos a minutos, dependiendo de la cantidad de rondas de KDF que use.
+
+Por ejemplo, para generar una clave RSA, usaría:
+
+```bash
+$ ssh-keygen -a 1000 -b 4096 -C "" -E sha256 -o -t rsa
+```
+Para una clave ED25519, usaría:
+```bash
+$ ssh-keygen -a 1000 -C "" -E sha256 -o -t ed25519
+```
+
+`-a-` KDF Rounds (función de derivación de clave).
+
+`-b-` Tamaño de bit (se aplica a RSA, pero no a ED25519).
+
+`-C-` Establece que el comentario de la clave esté en blanco.
+
+`-e-` Establece el hash de clave utilizado (sha256 es el predeterminado).
+
+`-o-` Utiliza el nuevo formato OpenSSH para las claves.
+
+`-t-` Especifica El tipo de clave (RSA / ED25519).
+
+
+Con 1,000 rondas de KDF, la clave tarda unos segundos en generarse cuando se usa una frase de contraseña, y también demorará unos segundos en iniciar sesión. El uso de KDF genera una clave más segura, aunque hay que tener cuidado ya que establecerlo demasiado alto definitivamente causará retrasos graves al intentar iniciar sesión (es decir, 20,000 rondas tomarán un promedio de 2-4 minutos para generar y lo mismo para iniciar sesión ).
+
+Una vez que se genere su clave pública / privada, coloque la clave pública en:
+
+```bash
+/home/paul/.ssh/authorized_keys
+```
+
+## Servidor
 Para poder instalar es necesario tener los permisos del autor del código fuente del sistema que puede descargar desde [github]( https://github.com/paulantezana/review).
 
 El sistema está desarrollado en el lenguaje de programación GO que es un lenguaje de programación concurrente y compilado inspirado en la sintaxis de C. Ha sido desarrollado por Google. 
