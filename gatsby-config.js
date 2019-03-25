@@ -1,12 +1,12 @@
 module.exports = {
     siteMetadata: {
-        title: `Documentación`,
+        title: `Sistema institucional para IEST públicas y privadas`,
         author: `PaulAntezana`,
-        description: `Documentación del sistema institucional.`,
-        siteUrl: `https://paulantezana.com`,
-        social: {
-            facebook: `paul antezana`,
-        },
+        description: `Documentación de la propuesta de desarrollo de un sistema institucional para el instituto Vilcanota Sicuani.`,
+        siteUrl: `https://iestpvilcanota.com`,
+        // social: {
+        //     facebook: `paul antezana`,
+        // },
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

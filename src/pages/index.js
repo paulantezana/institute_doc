@@ -2,8 +2,8 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import SiteLayout from "../layout/SiteLayout"
 import MainBanner from "../components/MainBanner"
-import { Button, Divider, List, Card, Icon, Tooltip } from "antd"
-
+import { Button, List, Icon, Tooltip } from "antd"
+import SEO from "../components/seo"
 import {
     IconAdmission,
     IconReview,
@@ -74,63 +74,44 @@ const dataSistem = [
 
 export default ({ data }) => (
     <SiteLayout>
-        <MainBanner />
+        <SEO title="Introduccion" />
+        <MainBanner/>
         <div className="Container Sistems">
             <List
-                grid={{
-                    gutter: 16,
-                    xs: 1,
-                    sm: 2,
-                    md: 3,
-                    lg: 4,
-                }}
+                itemLayout="vertical"
                 dataSource={dataSistem}
                 renderItem={item => (
-                    <List.Item>
-                        <Card>
-                            <div className="SCards">
-                                <div className="Center">
-                                    <Icon
-                                        component={item.img}
-                                        style={{
-                                            fontSize: "50px",
-                                            marginBottom: "8px",
-                                        }}
-                                    />
-                                    <h3>{item.title}</h3>
-                                </div>
-                                <div className="Center">
-                                    <div style={{marginTop: '8px'}}>
-                                        <Link to={item.doc}>
-                                            <Tooltip title="Documentación">
-                                                <Button
-                                                    shape="circle"
-                                                    icon="book"
-                                                />
-                                            </Tooltip>
-                                        </Link>
-                                        <Divider type="vertical" />
-                                        <a target="_blanck" href={item.view}>
-                                            <Tooltip title="Ir al sistema">
-                                                <Button
-                                                    shape="circle"
-                                                    icon="global"
-                                                />
-                                            </Tooltip>
-                                        </a>
-                                        <Divider type="vertical" />
-                                        <a target="_blanck" href={item.code}>
-                                            <Tooltip title="Codigo fuente">
-                                                <Button
-                                                    shape="circle"
-                                                    icon="github"
-                                                />
-                                            </Tooltip>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </Card>
+                    <List.Item
+                        actions={[
+                            <Link to={item.doc}>
+                                <Tooltip title="Documentación">
+                                    <Button shape="circle" icon="book" />
+                                </Tooltip>
+                            </Link>,
+                            <a target="_blanck" href={item.view}>
+                                <Tooltip title="Ir al sistema">
+                                    <Button shape="circle" icon="global" />
+                                </Tooltip>
+                            </a>,
+                            <a target="_blanck" href={item.code}>
+                                <Tooltip title="Codigo fuente">
+                                    <Button shape="circle" icon="github" />
+                                </Tooltip>
+                            </a>,
+                        ]}
+                    >
+                        <List.Item.Meta
+                            avatar={
+                                <Icon
+                                    component={item.img}
+                                    style={{
+                                        fontSize: "32px",
+                                        // marginBottom: "8px",
+                                    }}
+                                />
+                            }
+                            title={item.title}
+                        />
                     </List.Item>
                 )}
             />
